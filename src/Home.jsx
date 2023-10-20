@@ -44,7 +44,7 @@ const FileUpload = () => {
 
   return (
     <div className="bg-gray-900 w-full flex flex-col py-6 px-4 h-auto justify-center items-center text-white gap-4">
-      <h2 className="text-[40px]">File Upload</h2>
+      <h2 className="text-[40px]">Ai Scanner</h2>
       <div className="py-4 flex gap-4">
         <input
           type="file"
