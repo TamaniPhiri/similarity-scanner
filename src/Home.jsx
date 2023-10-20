@@ -24,7 +24,7 @@ const FileUpload = () => {
       }
       // Replace 'YOUR_BACKEND_URL' with the actual URL of your backend endpoint for file uploads.
       const response = await axios.post(
-        "http://localhost:3000/upload",
+        "https://similarity-checks-server.onrender.com/upload",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
