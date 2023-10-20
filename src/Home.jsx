@@ -13,7 +13,7 @@ const FileUpload = () => {
 
   const handleFileUpload = async () => {
     try {
-      if (selectedFiles.length === 0) {
+      if (selectedFiles.length === 0 || selectedFiles.length === 1) {
         alert("Please select one or more files to upload.");
         return;
       }
@@ -30,10 +30,9 @@ const FileUpload = () => {
           headers: { "Content-Type": "multipart/form-data" },
         }
       );
-      if (response.status == 200) {
+      if (response.status === 200) {
         setResults(response.data.similarities);
       }
-      console.log(results);
       // Handle the response from the server (e.g., display results, update the UI).
       console.log("Server Response:", response.data);
     } catch (error) {
@@ -51,17 +50,19 @@ const FileUpload = () => {
           type="file"
           onChange={handleFileChange}
           multiple
-          className=" border-2 border-gray-700 rounded-md p-2"
+          className="border-2 border-gray-700 rounded-md p-2"
         />
         <button
           onClick={handleFileUpload}
-          className=" border-2 border-gray-700 px-2 rounded-md hover:bg-gray-950 transition-all"
+          className="border-2 border-gray-700 px-2 rounded-md hover:bg-gray-950 transition-all"
         >
           Upload
         </button>
       </div>
       {loading ? (
-        <div className=" min-h-screen my-6"><div className=" w-32 h-32 border-4 rounded-full border-t-gray-900 animate-spin"></div></div>
+        <div className="min-h-screen my-6">
+          <div className="w-32 h-32 border-4 rounded-full border-t-gray-900 animate-spin"></div>
+        </div>
       ) : (
         <>
           {results.length === 0 ? null : (
@@ -69,10 +70,14 @@ const FileUpload = () => {
               {results.map((item, i) => (
                 <div key={i}>
                   <div className="flex flex-row justify-between w-full my-4">
-                    <p className=" text-xl underline">{item.file1}</p>
-                    <p className=" text-xl underline">{item.file2}</p>
+                    <p className="text-xl underline">{item.file1}</p>
+                    <p className="text-xl underline">{item.file2}</p>
                   </div>
-                  <p>{item.similarText}</p>
+                  <div>
+                    {item.similarParagraphs.map((paragraph, j) => (
+                      <p key={j}>{paragraph}</p>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
