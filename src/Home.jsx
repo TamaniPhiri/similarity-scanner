@@ -69,7 +69,7 @@ const FileUpload = () => {
             <div className="bg-gray-800 text-white p-4 rounded-md">
               {results.map((item, i) => (
                 <div key={i}>
-                  <div className="flex flex-row justify-between w-full my-4">
+                  <div className="flex flex-row text-gray-300 justify-between w-full my-4">
                     <p className="text-xl underline">{item.file1}</p>
                     <p className="text-xl underline">{item.file2}</p>
                   </div>
