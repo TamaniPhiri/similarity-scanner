@@ -65,7 +65,7 @@ const FileUpload = () => {
         </div>
       ) : (
         <>
-          {results.length === 0 ? null : (
+          {results.length === 0 ? <div>No Similarities</div> : (
             <div className="bg-gray-800 text-white p-4 rounded-md">
               {results.map((item, i) => (
                 <div key={i}>
@@ -73,11 +73,16 @@ const FileUpload = () => {
                     <p className="text-xl underline">{item.file1}</p>
                     <p className="text-xl underline">{item.file2}</p>
                   </div>
-                  <div>
+                  <div>{item.message}</div>
+                  {item.similarParagraphs===""?(
+                    <p>No similarities found</p>
+                  ):(
+                    <div>
                     {item.similarParagraphs.map((paragraph, j) => (
                       <p key={j}>{paragraph}</p>
                     ))}
                   </div>
+                  )}
                 </div>
               ))}
             </div>
