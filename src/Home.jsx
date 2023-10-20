@@ -73,16 +73,11 @@ const FileUpload = () => {
                     <p className="text-xl underline">{item.file1}</p>
                     <p className="text-xl underline">{item.file2}</p>
                   </div>
-                  <div>{item.message}</div>
-                  {item.similarParagraphs===""?(
-                    <p>No similarities found</p>
-                  ):(
                     <div>
                     {item.similarParagraphs.map((paragraph, j) => (
                       <p key={j}>{paragraph}</p>
                     ))}
                   </div>
-                  )}
                 </div>
               ))}
             </div>
