@@ -4,7 +4,7 @@ import axios from "axios";
 const FileUpload = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const handleFileChange = (e) => {
     const files = e.target.files;
