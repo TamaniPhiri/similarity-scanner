@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState } from "react";
 import axios from "axios";
 
 const FileUpload = () => {
@@ -65,8 +65,8 @@ const FileUpload = () => {
         </div>
       ) : (
         <>
-          {results.length === 0 ? <div>No Similarities</div> : (
-            <div className="bg-gray-800 text-white p-4 rounded-md">
+          {results.length === 0 ? <div>No Similarities, please upload other documents</div> : (
+            <div className="bg-gray-800 text-white p-4 rounded-md mb-12">
               {results.map((item, i) => (
                 <div key={i}>
                   <div className="flex flex-row text-gray-300 justify-between w-full my-4">
